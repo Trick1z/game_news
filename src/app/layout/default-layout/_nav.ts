@@ -15,15 +15,11 @@ export const navItems: INavData[] = [
     name: 'admin side'
   },
   {
-    name: 'add',
-    url: '/game-news/add',
+    name: 'home',
+    url: '/game-news/home',
     iconComponent: { name: 'cil-drop' }
   },
-  {
-    name: 'all',
-    url: '/game-news/all',
-    iconComponent: { name: 'cil-drop' }
-  },
+
   // {
   //   name: 'Typography',
   //   url: '/theme/typography',
