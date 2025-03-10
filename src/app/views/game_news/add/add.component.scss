@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .form{
+    margin: 20px 0;
+    width: 40rem;
+    padding: 2rem;
+    background-color: #2a303d;
+    border-radius: 15px;
+    box-shadow: 3px -3px 5px 0px #38393d;
+  }
+}

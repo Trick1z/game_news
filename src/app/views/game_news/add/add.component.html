@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="form">
+    <h1>Add Main</h1>
+    <div class="main" *ngIf="!main_data_state; else readOnlyForm">
+      <form cForm>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Main Title</label>
+          <input
+            [(ngModel)]="main_data.main_title"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlInput1"
+            placeholder="..."
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1"
+            >Main Descriptions</label
+          >
+          <textarea
+            [(ngModel)]="main_data.main_desc"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label cLabel for="formFile">Default file input example</label>
+          <input
+            (change)="onFileSelected($event)"
+            cFormControl
+            id="formFile"
+            type="file"
+          />
+        </div>
+      </form>
+      <img style="max-width: 20rem;" *ngIf="base64Image" [src]="base64Image" alt="Converted Image" />
+
+    </div>
+
+    <ng-template #readOnlyForm>
+      <form cForm>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Main Title</label>
+          <input
+            [(ngModel)]="main_data.main_title"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            readonly
+            id="exampleFormControlInput1"
+            placeholder="..."
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1"
+            >Main Descriptions</label
+          >
+          <textarea
+            [(ngModel)]="main_data.main_desc"
+            [ngModelOptions]="{ standalone: true }"
+            readonly
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+      </form>
+      <img style="max-width: 20rem;" *ngIf="base64Image" [src]="base64Image" alt="Converted Image" />
+
+    </ng-template>
+    <button
+      *ngIf="!main_data_state"
+      cButton
+      color="primary"
+      (click)="main_submit()"
+    >
+      Submit
+    </button>
+  </div>
+
+  <div class="form" *ngIf="main_data_state">
+    <h1>Add Sub</h1>
+
+    <div class="main">
+      <form cForm>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Sub Title</label>
+          <input
+            [(ngModel)]="sub_data.sub_title"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlInput1"
+            placeholder="..."
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Sub Detail</label>
+          <textarea
+            [(ngModel)]="sub_data.sub_detail"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1"
+            >Sub Descriptions</label
+          >
+          <textarea
+            [(ngModel)]="sub_data.sub_desc"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Youtube Link</label>
+          <input
+            [(ngModel)]="sub_data.sub_yt_link"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlInput1"
+            placeholder="..."
+            type="text"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Steam Link</label>
+          <input
+            [(ngModel)]="sub_data.sub_st_link"
+            [ngModelOptions]="{ standalone: true }"
+            cFormControl
+            id="exampleFormControlInput1"
+            placeholder="..."
+            type="text"
+          />
+        </div>
+      </form>
+    </div>
+
+    <button cButton color="primary" (click)="sub_onSubmit()">Submit</button>
+  </div>
+</div>
