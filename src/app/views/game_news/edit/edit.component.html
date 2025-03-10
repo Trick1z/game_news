@@ -1,0 +1,118 @@
+<button cButton color="secondary">Back</button>
+<div class="date-time">
+  <p>create at : {{ convertTime(data_.CREATE_DATE) }}</p>
+  <p>latest update at : {{ convertTime(data_.UPDATE_DATE) }}</p>
+</div>
+
+<div class="form">
+  <div class="form">
+    <h1>Edit Main</h1>
+    <form cForm>
+      <div class="mb-3">
+        <label cLabel for="exampleFormControlInput1">Main Title</label>
+        <input
+          [(ngModel)]="data_.MAIN_TITLE"
+          [ngModelOptions]="{ standalone: true }"
+          cFormControl
+          id="exampleFormControlInput1"
+          placeholder="..."
+          type="text"
+        />
+      </div>
+      <div class="mb-3">
+        <label cLabel for="exampleFormControlTextarea1"
+          >Main Descriptions</label
+        >
+        <textarea
+          [(ngModel)]="data_.MAIN_DESC"
+          [ngModelOptions]="{ standalone: true }"
+          cFormControl
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label cLabel for="formFile">Default file input example</label>
+        <input
+          (change)="onFileSelected($event)"
+          cFormControl
+          id="formFile"
+          type="file"
+        />
+      </div>
+    </form>
+    <img
+      style="max-width: 20rem"
+      *ngIf="base64Image"
+      [src]="base64Image"
+      alt="Converted Image"
+    />
+  </div>
+</div>
+<div class="sub-form">
+  <h1>Edit Sub</h1>
+  <form cForm>
+    <div class="mb-3">
+      <label cLabel for="exampleFormControlInput1">Sub Title</label>
+      <input
+        [(ngModel)]="data_.SUB_TITLE"
+        [ngModelOptions]="{ standalone: true }"
+        cFormControl
+        id="exampleFormControlInput1"
+        placeholder="..."
+        type="text"
+      />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="exampleFormControlTextarea1">Sub Descriptions</label>
+      <textarea
+        [(ngModel)]="data_.SUB_DESC"
+        [ngModelOptions]="{ standalone: true }"
+        cFormControl
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label cLabel for="exampleFormControlTextarea1">Sub Detail</label>
+      <textarea
+        [(ngModel)]="data_.SUB_DETAIL"
+        [ngModelOptions]="{ standalone: true }"
+        cFormControl
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label cLabel for="exampleFormControlInput1">Youtube Link</label>
+      <input
+        [(ngModel)]="data_.YOUTUBE"
+        [ngModelOptions]="{ standalone: true }"
+        cFormControl
+        id="exampleFormControlInput1"
+        placeholder="..."
+        type="text"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label cLabel for="exampleFormControlInput1">Steam Link</label>
+      <input
+        [(ngModel)]="data_.STEAM"
+        [ngModelOptions]="{ standalone: true }"
+        cFormControl
+        id="exampleFormControlInput1"
+        placeholder="..."
+        type="text"
+      />
+    </div>
+  </form>
+
+
+</div>
+
+<button style="margin-bottom: 5rem;" (click)="onSubmit()" cButton color="success">Submit</button>
+

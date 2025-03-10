@@ -15,5 +15,12 @@ export const routes: Routes = [
       title: 'alldata Page'
     }
   },
+  {
+    path: 'edit',
+    loadComponent: () => import('./edit/edit.component').then(m => m.EditComponent),
+    data: {
+      title: 'Edit Page'
+    }
+  },
 
 ];

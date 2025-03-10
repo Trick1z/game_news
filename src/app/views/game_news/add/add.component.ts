@@ -30,8 +30,7 @@ export class AddComponent implements OnInit {
   constructor(private http: HttpClient, private base: ApiServices) {}
   main_id: number | null = null;
   main_submit() {
-    this.main_data_state = true;
-    this.main_data.img = this.base64Image;
+    this.main_data.IMG = this.base64Image;
     // // console.log(this.apiUrl);
 
     Swal.fire({
@@ -51,6 +50,8 @@ export class AddComponent implements OnInit {
             this.main_id = res.main.id;
           });
 
+          this.main_data_state = true;
+
         return Swal.fire({
           position: 'center',
           icon: 'success',
@@ -67,7 +68,7 @@ export class AddComponent implements OnInit {
   sub_data: any = {};
 
   sub_onSubmit() {
-    this.sub_data.main_id = this.main_id;
+    this.sub_data.MAIN_ID = this.main_id;
 
     Swal.fire({
       title: 'Are you sure?',
@@ -123,4 +124,13 @@ export class AddComponent implements OnInit {
     window.location.reload();
 
   }
+
+log(){
+  this.main_data.IMG = this.base64Image;
+
+  console.log(this.main_data);
+  console.log(this.sub_data);
+
+
+}
 }

@@ -1,19 +1,45 @@
 <div class="container">
-  <table>
+  <!-- <table>
     <thead>
       <tr>
+        <th>Info</th>
         <th>ID</th>
         <th>Name</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of data; let i = index">
-        <td>{{ item.asd }}</td>
-        <td>{{ item.asd }}</td>
+      <tr *ngFor="let item of main_data; let i = index">
+        <td><button cButton color="info">info</button></td>
+        <td>{{ item.MAIN_ID }}</td>
+        <td>{{ item.MAIN_TITLE }}</td>
         <td>
           <button cButton color="danger">Danger</button>
           <button cButton color="danger">Danger</button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <table cTable>
+    <thead>
+      <tr>
+        <th scope="col">Info</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Desc</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of main_data; let i = index" cTableColor="primary">
+        <td><button cButton color="info">info</button></td>
+        <td>{{ item.MAIN_ID }}</td>
+        <td>{{ item.MAIN_TITLE }}</td>
+        <td>{{ item.MAIN_DESC }}</td>
+        <td>
+          <button cButton color="warning">Edit</button>
+          <button cButton color="danger">Delete</button>
         </td>
       </tr>
     </tbody>
