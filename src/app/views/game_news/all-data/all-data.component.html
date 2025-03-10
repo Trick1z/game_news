@@ -38,8 +38,8 @@
         <td>{{ item.MAIN_TITLE }}</td>
         <td>{{ item.MAIN_DESC }}</td>
         <td>
-          <button cButton color="warning">Edit</button>
-          <button cButton color="danger">Delete</button>
+          <button cButton color="warning" (click)="on_edit(item.MAIN_ID)">Edit</button>
+          <button cButton color="danger"(click)="on_delete(item.MAIN_ID)">Delete</button>
         </td>
       </tr>
     </tbody>

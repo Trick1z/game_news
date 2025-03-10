@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonDirective, FormModule } from '@coreui/angular';
 import { ApiServices } from '../apiServices';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -23,10 +24,12 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.get_session_id();
   }
-  constructor(private http: HttpClient, private Base: ApiServices) {}
+  constructor(private http: HttpClient, private Base: ApiServices,
+    private nav:Router
+  ) {}
 
   get_session_id() {
-    sessionStorage.setItem('main_id', '2');
+    // sessionStorage.setItem('main_id', '2');
 
     var get_id = sessionStorage.getItem('main_id') || null;
     // var id = get_id
@@ -46,7 +49,6 @@ export class EditComponent implements OnInit {
     this.http
       .get(`${this.Base.Api()}/get.edit/ref_main=${this.main_id}`)
       .subscribe((res: any) => {
-        console.log(res);
         this.data_ = res[0];
         this.base64Image = res[0].IMG_IMG;
       });
@@ -86,6 +88,7 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
+    this.data_.IMG_IMG = this.base64Image;
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -97,20 +100,22 @@ export class EditComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.http
-        .put(`${this.Base.Api()}/put.edit`, this.data_)
-        .subscribe((res: any) => {
-          console.log(res);
-        });
+          .put(`${this.Base.Api()}/put.edit`, this.data_)
+          .subscribe((res: any) => {
+            this.get_edit_data();
+          });
         Swal.fire({
           title: 'Edited!',
           text: 'Your data has been edited.',
           icon: 'success',
         });
 
-        return this.get_edit_data();
+        return;
       }
-      return
+      return;
     });
-
+  }
+  back() {
+    this.nav.navigateByUrl('game-news/all')
   }
 }
