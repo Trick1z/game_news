@@ -8,6 +8,13 @@ export const routes: Routes = [
       title: 'home Page'
     }
   },
+  {
+    path: 'info-page',
+    loadComponent: () => import('./info-page/info-page.component').then(m => m.InfoPageComponent),
+    data: {
+      title: 'info Page'
+    }
+  },
 
 
 ];

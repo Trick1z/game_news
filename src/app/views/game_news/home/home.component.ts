@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
   goto_page(getid :number){
     var id = getid.toString()
     sessionStorage.setItem('main_id' , id)
-    // this.nav.navigateByUrl
+    this.nav.navigateByUrl('game-news/info-page')
 
   }
 }
