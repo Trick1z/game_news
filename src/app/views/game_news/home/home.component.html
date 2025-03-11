@@ -1,5 +1,12 @@
 <div class="container">
-  <div class="cards" >
-
+  <div class="cards" *ngFor="let item of _data">
+    <div class="top">
+      <div class="h-t">
+        <h6>{{item.MAIN_TITLE}}</h6>
+        <p>{{}}</p>
+      </div>
+    </div>
+    <div class="mid"></div>
+    <div class="bot"></div>
   </div>
 </div>
