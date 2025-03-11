@@ -1,12 +1,18 @@
 <div class="container">
-  <div class="cards" *ngFor="let item of _data">
+  <div class="cards" *ngFor="let item of _data" (click)="goto_page(item.MAIN_ID)">
     <div class="top">
-      <div class="h-t">
-        <h6>{{item.MAIN_TITLE}}</h6>
-        <p>{{}}</p>
+      <h6>{{ item.MAIN_TITLE }}</h6>
+      <div class="date">
+        <p>สร้างเมื่อ {{ convertTime(item.CREATE_DATE) }}</p>
+        <p>แก้ไขล่าสุด {{ convertTime(item.UPDATE_DATE) }}</p>
       </div>
     </div>
-    <div class="mid"></div>
-    <div class="bot"></div>
+    <div class="mid">
+      <img [src]="item.IMG_IMG" alt="" />
+    </div>
+    <div class="bot">
+      <p>{{ item.MAIN_DESC }}</p>
+      <p>อ่านต่อ</p>
+    </div>
   </div>
 </div>

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .cards {
+    max-width: 40rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 8px #040506;
+    background-color: #2d3441;
+    border-radius: 10px;
+
+    .top {
+      padding: 5px;
+      .date {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        p {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .mid {
+      img {
+        max-width: 40rem;
+        overflow: hidden;
+      }
+    }
+
+    .bot {
+      padding: 5px;
+    }
+    transition: 0.3s ease-in-out;
+  }
+
+  .cards:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 8px #394857;
+  }
+
+}
+
